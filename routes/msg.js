@@ -1,4 +1,4 @@
-var message = { state: 'critical', msg: 'Die Welt geht unter'};
+var message = { state: 'none' } ;
 
 exports.show = function(req, res){
   res.jsonp(message);
