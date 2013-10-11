@@ -1,4 +1,4 @@
-var notificationsBaseUrl = 'http://localhost:3000/';
+var notificationsBaseUrl = 'http://monitoring-notifications.herokuapp.com/';
 $(function() {
 	$('head').append('<link rel="stylesheet" href="'+ notificationsBaseUrl +'stylesheets/style.css">');
 	$('head').append('<script src="'+notificationsBaseUrl+'javascripts/index.js"></script>');
