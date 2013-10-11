@@ -21,6 +21,11 @@
 	display: none;
 }
 
+#view {
+	font-weight: bold;
+	font-size: 50px;
+}
+
 a, label {
   color: white;
 }
