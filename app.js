@@ -1,4 +1,4 @@
-
+var newrelic = require('newrelic');
 /**
  * Module dependencies.
  */
