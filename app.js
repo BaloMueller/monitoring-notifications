@@ -6,6 +6,7 @@ var newrelic = require('newrelic');
 var express = require('express');
 var routes = require('./routes');
 var msg = require('./routes/msg');
+var broadcast = require('./routes/broadcast');
 var http = require('http');
 var path = require('path');
 
@@ -28,7 +29,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/test', routes.test);
+app.get('/broadcast', broadcast.broadcast);
 app.get('/msg', msg.show);
 app.post('/msg', msg.update);
 

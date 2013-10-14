@@ -18,8 +18,7 @@ $(function() {
 	};
 
 	$(document).on('click', '#change', function() {
-		$('#view').addClass('hidden');
-		$('#edit').removeClass('hidden');
+		window.open(notificationsBaseUrl + 'broadcast', '_blank');
 	});
 
 	$(document).on('click', '#clear', function() {
@@ -47,7 +46,6 @@ $(function() {
 			data: {state: newState, msg: newMessage, user: newUser }, 
 			complete: function() {
 				loadCurrentState();
-				$('#edit').addClass('hidden');
 				$('#view').removeClass('hidden');
 			},
 			dataType: 'json'});		

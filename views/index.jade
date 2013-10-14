@@ -8,21 +8,6 @@ block content
       span#user
       | )
 
-    form#edit.hidden
-      table
-        tr
-          td
-            label(for="editMessage") Nachricht:
-          td
-            input#editMessage(type="text", name="message")
-        tr
-          td
-            label(for="user") Absender:
-          td
-            input#editUser(type="text", name="user")
-
-      input(type="submit")
-
     div
       a#change(href="#") Broadcast Message
       | 

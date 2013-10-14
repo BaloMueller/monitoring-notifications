@@ -12,7 +12,7 @@
 
 #notifications.no-message {
 	background-color: black;
-	width: 300px;
+	width: 200px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -24,6 +24,10 @@
 #view {
 	font-weight: bold;
 	font-size: 50px;
+}
+
+#change {
+	font-size: smaller;
 }
 
 a, label {
