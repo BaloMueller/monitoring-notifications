@@ -7,3 +7,6 @@ Just add the following line to your Markup:
 ```html
 <script src="http://monitoring-notifications.herokuapp.com/javascripts/notificationLoader.js"></script>
 ```
+
+Messages can be broadcasted at:
+http://monitoring-notifications.herokuapp.com/broadcast
