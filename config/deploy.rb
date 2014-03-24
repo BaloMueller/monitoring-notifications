@@ -14,7 +14,7 @@ set (:deploy_to) 	{ "/data/www/#{ user }/app/#{ primary_url }/" }
 set :keep_releases, 5
 set :copy_exclude,  ['.svn', '.DS_Store', '.git']
 
-after "deploy:symlink" #, "set_cron_d", "fix_permissions", "deploy_monitoring"
+#after "deploy:symlink" #, "set_cron_d", "fix_permissions", "deploy_monitoring"
 
 desc "Set crontab from files in cron.d"
 task :set_cron_d, :roles => [:cronjobs] do
