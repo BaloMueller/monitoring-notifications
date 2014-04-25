@@ -14,24 +14,20 @@ set (:deploy_to) 	{ "/data/www/#{ user }/app/#{ primary_url }/" }
 set :keep_releases, 5
 set :copy_exclude,  ['.svn', '.DS_Store', '.git']
 
-#after "deploy:symlink" #, "set_cron_d", "fix_permissions", "deploy_monitoring"
+after "deploy:symlink", "copy_upstart", "run", "start_monit"
 
-desc "Set crontab from files in cron.d"
-task :set_cron_d, :roles => [:cronjobs] do
-  run("/usr/bin/crontab -r || /bin/true")
-  run("/bin/cat #{ current_path }/cron.d/* | /usr/bin/crontab -")
+desc "Start node daemon"
+task :run do
+  run("sudo start Monitoring-Notifications")
 end
 
-desc "Make sh-Files excutable"
-task :fix_permissions do
-  run("/bin/chmod 764 #{current_path}/bayes/scripte/*.sh")
+desc "Set up monitoring of node daemon with monit"
+task :start_monit do
+  run("monit -d 60 -c #{current_path}/monit.conf")
 end
 
-desc "Deploy monitoring stuff"
-task :deploy_monitoring do
-  # copy property files first
-  run("sudo cp #{current_path}/monitoring/properties/#{stage}/bayes4rating_*.prop /etc/as24/prtg/properties.unmanaged/")
-  
-  # copy sql files, too
-  run("sudo cp #{current_path}/monitoring/sql/#{stage}/bayes4rating_*.sql /opt/as24/prtg/sql/unmanaged/")
+desc "Copy upstart script to /etc/init"
+task :copy_upstart do
+  run("sudo cp #{current_path}/upstart.conf /etc/init/Monitoring-Notifications.conf")
 end
+
